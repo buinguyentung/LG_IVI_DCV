@@ -1,0 +1,102 @@
+******
+Showing logs
+git log --pretty=oneline --abbrev-commit
+git log --origin/master..HEAD	: view not yet pushed commit
+git log -2
+git log file_name
+git show commid_id
+git diff --stat origin/master.. : view file in commit (not pushed yet) 
+git status
+
+******
+Adding / Committing / Pushing
+git add file_name
+git commit -m "commit message"
+git push origin master
+git push origin HEAD:refs/for/master
+git push origin HEAD:refs/for/info35l_release%r=jt.seo@lge.com,r=quoc.le@lge.com,r=tung.bui@lge.com
+
+******
+Deleting a local commit
+git reset --hard HEAD~
+git reset --soft HEAD~1
+git rebase -i HEAD~2
+
+******
+Deleting a remote commit
+First delete it locally
+Then push the change to remote:		git push origin +master
+(The + sign before 'master' tells git to force the push)
+
+******
+Modifying a pushed but not yet merged commit
+git add *
+git commit --amend –m “New and correct message”
+git push origin HEAD:refs/changes/CHANGE_ID
+
+******
+Working with branch
+List all remote branches: 	git ls-remote
+List all local branches: 	git branch
+Create new branch:		git branch branch_name
+Change to new branch:	git checkout branch_name -> git pull
+Create and checkout new branch:		git checkout -b branch_name
+Push new branch to remote:			git push --set-upstream origin branch_name
+Rename branch:			git branch -m branch_name new_branch_name
+Show completely merged branch:		git branch --merge
+
+Get changes from master to local branch:
+	git merge master
+	git rebase master	(rebase will re-write history)
+
+Delete local branch:	git branch -d local_branch_name (-D = force deletion)
+Delete remote branch:	git push origin --delete remote_branch_name
+
+Force checkout:				git checkout -f branch_name
+Delete untracking files:	git clean -i
+
+******
+Merging and Rebasing master to local branch
+git checkout local_branch_name
+git rebase master	=> conflict => resolve conflict
+git rebase --continue
+
+Merging and Rebasing local branch to master
+git checkout master
+git merge local_branch_name
+git push
+
+******
+Server address changed:		git remote set-url origin http://10.218.140.60:3000/DCVSD1/I3L64-Model
+Checking new address: 		git remote show origin
+If 'hook' error occurs, pull - rebase before push 
+
+******
+git status = Your branch and 'origin/info35l_release' have diverged, and have 1 and 6 different...
+
+Solution 1: discard branch changes
+git reset --hard HEAD~6
+git pull	=> get latest master branch
+
+Solution 2: merge or rebase 
+review the difference: 		git log HEAD..origin/info35l_release
+...o---o---A---B	(origin/info35l_release = upstream work)
+			\
+			 C		(your work)
+
+2.1. Merge
+git merge origin/info35l_release
+...o---o---A---B
+			\   \
+			 C---M
+The new M has two parents, each representing one path of development that lead to content stored in the commit.
+Now that the history behind M is non-linear
+
+2.2. Rebase
+git rebase origin/info35l_release
+git pull --rebase
+...o---o---A---B
+				\
+				 C'
+
+******
