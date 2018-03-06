@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Info3 IPC Sender (WebSocket)</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="data/ipcEnum.json"></script>
+    <script src="data/ipcStruct.json"></script>
+</head>
+
+<body>
+    <div id="page_wrapper">
+        <div id="header" style="border-bottom:1px solid gray; padding-bottom:10px;">
+            <div style="float:left; max-width:400px; margin:0;">
+                <h1>Info3 IPC Sender</h1>
+            </div>
+            <div style="margin-left:405px;">
+                <span class="input_name">Module:</span><br>
+                <select id="ipc_module" onchange="selectModule(this);"></select><br>
+            </div>
+        </div>
+        <br>
+        <div id="connect_box" style="font-size:0.9rem; clear:left;">
+            <div style="float:left; max-width:160px; margin:0;">
+                <span class="input_name">Host:</span><br>
+                <input type="text" id="host-ip" style="width:160px;" size="20" placeholder="Hostname" value="10.10.10.2">
+            </div>
+            <div style="margin-left:8px; display:inline-block;">
+                <span class="input_name">Port:</span><br>
+                <input type="text" id="host-port" style="width:50px;" size="5" maxlength="5" placeholder="Port" value="9999">
+            </div>
+            <div style="float:right; width:385px; padding:15px 0;">
+            <button type="button" id="connect">Disconnect</button>
+            </div>
+        </div>
+
+        <div id="status" style="clear:right"></div>
+
+        <div id="msg_box">
+            <ul id="messages"></ul>
+        </div>
+
+        <span class="input_name" id="ipc_name">IPC:</span><br>
+        <select id="ipc_cmd" onchange="selectIpc(this);"></select><br>
+
+        <span class="input_name" id="mgr_name">Manager:</span><br>
+        <select id="ipc_mgr" onchange="selectMgr(this);"></select><br>
+
+        <form id="ipc_form" action="#" method="post">
+            <div id="ipc_data" style="padding-bottom:10px;"></div>
+            <button type="submit" class="enabled">Send IPC</button>
+        </form>
+<!--
+        <form id="message_form" action="#" method="post">
+            <input id="message" type="text" placeholder="Write your message here..." required>
+            <button type="submit" class="enabled">Send Message</button>
+        </form>
+-->
+        <div style="float:right; margin-top:1rem; text-align:right; font-size:0.7em; color:#C3003C;">
+            © 2017 LG Electronics, VC IVI Development Center Vietnam<br>
+            <a href="http://10.218.140.31:4000/DCVSD1/IPC-Simulator" target="_blank">
+                <strong>IPC Simulator</strong>
+            </a>
+        </div>
+        <div style="clear:right"></div>
+    </div>
+
+    <script src="uint64_lite.js"></script>
+    <script src="load_ipc.js"></script>
+    <script src="send_ipc.js"></script>
+</body>
+</html>

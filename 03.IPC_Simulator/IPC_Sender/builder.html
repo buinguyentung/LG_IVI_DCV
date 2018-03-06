@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>IPC JSON Data Builder</title>
+
+    <link rel="stylesheet" href="builder.css">
+
+    <script src="data/ipc_all.json"></script>
+    <script src="data/ipcManagers.json"></script>
+    <script src="data/ipcEnum.json"></script>
+    <script src="data/ipcStruct.json"></script>
+</head>
+
+<body>
+  <div id="page_wrapper">
+    <h1>IPC JSON Data Builder</h1>
+  <div id="test-list" style="float:left; width:550px; margin:0;">
+    <input type="text" class="search" id="ipc-search" placeholder="Search for IPCs..." />
+    <ul class="list" id="ipc-list" style="font-size:.7rem;"></ul>
+    <ul class="pagination" id="ipc-page"></ul>
+  </div>
+  <div id="ipc-json" style="margin-left:560px;">
+    <label>JSON Data:</label>
+    <textarea id="json-txt" rows="40" readonly style="width:100%; font-size:0.7rem; resize:none;">
+    </textarea>
+    <button type="button" onclick="clearTextarea();">Clear</button>
+  </div>
+  </div>
+<script src="list.min.js"></script>
+<script src="builder.js"></script>
+</body>
+</html>

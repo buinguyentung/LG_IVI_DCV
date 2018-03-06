@@ -1,0 +1,143 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  background: #333;
+}
+
+#page_wrapper {
+  width: 640px;
+  background: #FFF;
+  padding: 1em;
+  margin: 1em auto;
+  border-top: 5px solid #69c773;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+#status {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.open {
+  color: green;
+}
+
+.closed {
+  color: red;
+}
+
+#msg_box {
+  padding: 5px;
+  height: 120px;
+  border: 1px solid blue;
+  overflow: scroll;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+ul li {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #EEE;
+}
+
+ul li:first-child {
+  border-top: 1px solid #EEE;
+}
+
+ul li span {
+  display: inline-block;
+  width: 90px;
+  font-weight: bold;
+  color: #999;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sent {
+  background-color: #F7F7F7;
+}
+
+.received {}
+
+#message_form {
+  margin-top: 1rem;
+}
+
+.input_name {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding-bottom: 2px;
+}
+
+input {
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  border: 1px solid #D9D9D9;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.6rem;
+}
+
+select {
+  width: 200px;
+  padding: 2px;
+  margin-bottom: 0.5rem;
+}
+
+#ipc_cmd {
+  width: 500px;
+}
+
+button {
+  display: inline-block;
+  border-radius: 3px;
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8em;
+  color: white;
+  margin: 0 0.25rem;
+  text-align: center;
+}
+
+button.enabled {
+  background: #86b32d;
+  border-bottom: 1px solid #5d7d1f;
+  cursor: pointer;
+}
+
+button.disabled {
+  background: #BABABA;
+  border-bottom: 1px solid #999;
+  cursor: default;
+}
+
+button:hover {
+  opacity: 0.75;
+}
+
+#footer {
+  width: 640px;
+  margin: 1em auto;
+  margin-top: 0;
+  padding: 1em;
+  background: #C3003C;
+  color: white;
+  font-size: 0.7rem;
+}
